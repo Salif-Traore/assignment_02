@@ -1,6 +1,11 @@
-Write your reflection here.
-
-See reflection.md for what makes a good reflection — be specific, use the
-terminology from this assignment (package, module, ETL, coercion, public API,
-relative import, accumulator, group by, unit vs. integration test), and make it
-actionable.
+This assignment package structure made sense to me because i already made something similar in my internship and 
+on my own: Quant-Signal-Pipeline project in which had separate data loaders, feature engineering and backtesting 
+into thier own modules for the same reason that sales_pipeline splits into extract, transform, and display so one 
+piece can change without breaking the others. The marketings roll up could be added to transform.py without touching 
+main_finance_report.py at all. Where i struggled here was the coercion. My first clean_currency let float "N/A" raise 
+and crash the entire report, and I had to internalize that as a value you cant read should default to zero and let the pipeline 
+keep running.the same instinvt i realize i had in my own project data loaders needed for missing OHLC rows but didnt explicitly handle. 
+ I also want more practice with the accumulator pattern because in summarize_by_item, 
+ since its the same "group by" logic I hand rolled less cleanly in my own backtesters's factor attribution step. 
+ By rewriting it here from a docstring instead of memeory it helped me realize the pattern more quickly. 
+ AI disclosure I used claude to help write main_finance_report.py, and the main_daily_report.py
